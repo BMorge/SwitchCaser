@@ -14,13 +14,13 @@ class Case {
     }
 
     public Case caser(Object caser) {
-        if (fulfilledBefore) return this;
+        if (fulfilledBefore || isEquals) return this;
         mainEquals(caser);
         return this;
     }
 
     public Case caser(Object... caser) {
-        if (fulfilledBefore) return this;
+        if (fulfilledBefore || isEquals) return this;
         for (Object example : caser) {
             mainEquals(example);
             if (isEquals) break;
