@@ -13,13 +13,13 @@ class Case {
         this.sample = sample;
     }
 
-    public Case caser(Object caser) {
+    public Case onCase(Object caser) {
         if (fulfilledBefore || isEquals) return this;
         mainEquals(caser);
         return this;
     }
 
-    public Case caser(Object... caser) {
+    public Case onCase(Object... caser) {
         if (fulfilledBefore || isEquals) return this;
         for (Object example : caser) {
             mainEquals(example);
@@ -41,7 +41,7 @@ class Case {
         }
     }
 
-    public Case breaker(Runnable runnable) {
+    public Case onBreak(Runnable runnable) {
         if (isEquals) {
             runnable.run();
             fulfilledBefore = true;
