@@ -12,6 +12,8 @@ import static org.testng.Assert.assertTrue;
 
 public class SwitchCaserTest {
 
+    private static final String TEST_SUCCESS = "test success";
+
     @Test
     public void test001_simpleTest() {
         AtomicBoolean switchIsWorck = new AtomicBoolean(false);
@@ -25,21 +27,21 @@ public class SwitchCaserTest {
 
     @Test
     public void test002_simpleTest(){
-        AtomicBoolean switchIsWorck = new AtomicBoolean(false);
+        AtomicBoolean switchIsWork = new AtomicBoolean(false);
         SwitchCaser.switchIt(1)
                 .onCase(2)
                 .onCase(3)
-                .onBreak(() -> switchIsWorck.set(true));
-        assertFalse(switchIsWorck.get());
+                .onBreak(() -> switchIsWork.set(true));
+        assertFalse(switchIsWork.get());
     }
 
     @Test
     public void test003_simpleTest(){
-        AtomicBoolean switchIsWorck = new AtomicBoolean(false);
+        AtomicBoolean switchIsWork = new AtomicBoolean(false);
         SwitchCaser.switchIt(1)
                 .onCase(new Integer(1))
-                .onBreak(() -> switchIsWorck.set(true));
-        assertTrue(switchIsWorck.get());
+                .onBreak(() -> switchIsWork.set(true));
+        assertTrue(switchIsWork.get());
     }
 
     @Test
@@ -51,9 +53,9 @@ public class SwitchCaserTest {
                 .onCase(3)
                 .onBreak(() -> container.set(new TestContainer("foo")))
                 .onCase(1)
-                .onBreak(() -> container.set(new TestContainer("test success")));
+                .onBreak(() -> container.set(new TestContainer(TEST_SUCCESS)));
 
-        assertEquals(container.get().getString(), "test success");
+        assertEquals(container.get().getString(), TEST_SUCCESS);
     }
 
     static class TestContainer{
