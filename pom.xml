@@ -5,8 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.bmorge</groupId>
-    <artifactId>SwitchCaser</artifactId>
+    <artifactId>switchcaser</artifactId>
     <version>1.0</version>
+    <packaging>jar</packaging>
+
+    <name>SwitchCaser</name>
 
     <dependencies>
         <dependency>
