@@ -1,9 +1,15 @@
 package com.bmorge.switchcaser;
 
+import com.sun.istack.internal.Nullable;
+
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.function.Supplier;
 
+/**
+ * Class implement logic "case", "break", "default".
+ * For start use it {@link com.bmorge.switchcaser.SwitchCaser#switchIt(Object)}
+ */
 public class Case {
     private final Object sample;
     private boolean isEquals;
@@ -17,7 +23,12 @@ public class Case {
         this.sample = sample;
     }
 
-    public Case onCase(Object caser) {
+    /**
+     * Simple case. For comparing use {@link java.lang.Object#equals(Object caser)} method of sample.
+     * @param caser object to equals with sample. Can be null.
+     * @return this
+     */
+    public Case onCase(@Nullable Object caser) {
         if (fulfilledBefore || isEquals) return this;
         mainEquals(caser);
         return this;
